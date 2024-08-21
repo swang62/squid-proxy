@@ -5,7 +5,7 @@ services:
       - 8118:3128
     labels:
       com.centurylinklabs.watchtower.enable: "true"
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./squid.conf:/etc/squid/squid.conf
       - ./passwords:/etc/squid/passwords
