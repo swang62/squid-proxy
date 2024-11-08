@@ -2,9 +2,10 @@ services:
   proxy:
     image: ubuntu/squid
     ports:
-      - 8118:3128
-    labels:
-      com.centurylinklabs.watchtower.enable: "true"
+      - 3128:3128
+    # labels:
+      # optional updates using watchtower
+      # com.centurylinklabs.watchtower.enable: "true"
     restart: unless-stopped
     volumes:
       - ./squid.conf:/etc/squid/squid.conf
