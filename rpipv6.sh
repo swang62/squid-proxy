@@ -18,8 +18,7 @@ cmd_awk="/usr/bin/awk"
 cmd_head="/usr/bin/head"
 squid_confd="/etc/squid/conf.d/"
 interface="eth0"
-network=$($cmd_ip -o -f inet6 addr show dev $interface | $cmd_awk '/scope global/ {print $4}' | $cmd_head -c 16)
-# ip -o -f inet6 addr show dev eth0 | awk '/scope global/ {print $4}' | head -c 16
+prefix="2607:f130:0:ee"
 sleeptime="30s"
 
 # -----
@@ -32,7 +31,7 @@ GenerateAddress() {
   b=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
   c=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
   d=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
-  echo $network$a:$b:$c:$d
+  echo $prefix:$a:$b:$c:$d
 }
 
 # -----
