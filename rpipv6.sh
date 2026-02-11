@@ -32,7 +32,7 @@ GenerateAddress() {
   b=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
   c=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
   d=${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}${array[$RANDOM%16]}
-  echo $network:$a:$b:$c:$d
+  echo $network$a:$b:$c:$d
 }
 
 # -----
