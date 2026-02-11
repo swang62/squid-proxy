@@ -22,7 +22,8 @@ cat /etc/squid/passwords
 
 Update the ipv6 range to the /64 subnet of your interface
 
-- Copy `squid.conf` and `rpipv6.sh` file to `/etc/squid/conf.d`
+- Copy `squid.conf` to `/etc/squid/squid.conf` (delete all other \*.conf in conf.d)
+- Copy `rpipv6.sh` file to `/etc/squid/conf.d`
 - Copy service file `rpipv6.service` to `/etc/systemd/system`
 
 ```
