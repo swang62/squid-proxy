@@ -19,7 +19,7 @@ cmd_head="/usr/bin/head"
 squid_confd="/etc/squid/conf.d/"
 interface="eth0"
 prefix="2607:f130:0:ee"
-sleeptime="30s"
+sleeptime="24h"
 
 # -----
 # Generate Random Address
@@ -49,7 +49,7 @@ tcp_outgoing_address $ip1 ip1" > $squid_confd"01-random-ip1.conf"
   if [[ $count > 0 ]]; then
     echo "[-] del ip2 $ip2"
     $cmd_ip -6 addr del $ip2/64 dev $interface
-    rm $squid_confd"66-random-ip2.conf" > /dev/null 2>&1
+    rm $squid_confd"02-random-ip2.conf" > /dev/null 2>&1
   fi
   /bin/systemctl reload squid
   sleep $sleeptime
@@ -66,7 +66,7 @@ tcp_outgoing_address $ip2 ip2" > $squid_confd"02-random-ip2.conf"
   if [[ $count > 0 ]]; then
     echo "[-] del ip3 $ip3"
     $cmd_ip -6 addr del $ip3/64 dev $interface
-    rm $squid_confd"66-random-ip3.conf" > /dev/null 2>&1
+    rm $squid_confd"03-random-ip3.conf" > /dev/null 2>&1
   fi
   /bin/systemctl reload squid
   sleep $sleeptime
@@ -82,7 +82,7 @@ tcp_outgoing_address $ip3 ip3" > $squid_confd"03-random-ip3.conf"
 
   echo "[-] del ip1 $ip1"
   $cmd_ip -6 addr del $ip1/64 dev $interface
-  rm $squid_confd"66-random-ip1.conf" > /dev/null 2>&1
+  rm $squid_confd"01-random-ip1.conf" > /dev/null 2>&1
   ((count++))
   /bin/systemctl reload squid
   sleep $sleeptime
