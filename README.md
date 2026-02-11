@@ -30,9 +30,14 @@ Update the ipv6 range to the /64 subnet of your interface
 systemctl enable --now squid
 systemctl enable --now rpipv6
 
+# Check all ports are up
+systemctl status squid
+netstat -tunlp | grep squid
+
 # Test locally
-curl -x http://user:pass@[::1]:3128 https://ifconfig.me/ip
+curl -x http://user:pass@[::1]:3128 http://api.ipify.org
+curl -x http://user:pass@[::1]:3128 http://api6.ipify.org
 
 # Test remote connections with
-curl -x http://user:pass@<ip_address>:3128 https://ifconfig.me/ip`
+curl -x http://user:pass@<ip_address>:3128 http://api.ipify.org
 ```
