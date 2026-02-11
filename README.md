@@ -33,6 +33,7 @@ systemctl enable --now rpipv6
 # Check all ports are up
 systemctl status squid
 netstat -tunlp | grep squid
+ip -6 addr show
 
 # Test locally
 curl -x http://user:pass@[::1]:3128 http://api.ipify.org
